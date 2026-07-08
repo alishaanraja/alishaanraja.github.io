@@ -20,7 +20,7 @@
             display: flex;
             align-items: center;
             gap: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .profile-pic {
@@ -40,6 +40,20 @@
         h2 { font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px; margin-top: 40px; }
         h3 { font-size: 1.2rem; margin: 0 0 10px 0; }
 
+        .learning-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2edf7;
+            margin-bottom: 20px;
+        }
+
+        .learning-card ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; 
@@ -49,6 +63,7 @@
 
         @media (max-width: 600px) {
             .projects-grid { grid-template-columns: 1fr; }
+            .profile-container { flex-direction: column; text-align: center; }
         }
 
         .project-card {
@@ -90,6 +105,25 @@
             font-weight: bold;
         }
 
+        .faq-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2edf7;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #4b6584;
+            margin-bottom: 5px;
+        }
+
+        .faq-answer {
+            margin: 0;
+        }
+
         footer {
             margin-top: 60px;
             text-align: center;
@@ -109,6 +143,15 @@
             <p>Welcome to my personal corner of the internet. I am learning how to use GitHub and build websites!</p>
         </div>
     </header>
+
+    <section class="learning-card">
+        <h3>📚 Currently Learning & Reading</h3>
+        <ul>
+            <li><strong>Tech Skill:</strong> HTML5 layout elements and advanced CSS layout properties.</li>
+            <li><strong>Current Reading:</strong> [Insert book title or tutorial name here].</li>
+            <li><strong>Next Goal:</strong> Learning how Git branches keep code safe.</li>
+        </ul>
+    </section>
 
     <main>
         <h2>My Projects</h2>
@@ -138,6 +181,18 @@
         <div class="blog-post">
             <span class="blog-date">July 7, 2026</span>
             <p>Successfully launched my first repository on GitHub and got a live web link working via GitHub Pages. Pretty exciting to see plain text turn into an actual website.</p>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">💡 Why did I start learning to code?</div>
+            <p class="faq-answer">I wanted to understand how the tools I use every day actually work behind the scenes, starting with GitHub and basic web design.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">🛠️ What software tools do I use?</div>
+            <p class="faq-answer">Right now, I am creating and managing files directly inside GitHub's built-in web editor on Google Chrome.</p>
         </div>
 
     </main>
