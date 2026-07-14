@@ -78,6 +78,16 @@
             display: inline-block;
         }
         body.dark-mode .clock-widget { background-color: #4a5568; color: #90cdf4; }
+        .learning-card, .blog-post, .faq-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2edf7;
+            margin-bottom: 20px;
+        }
+        .blog-post { border-left: 4px solid #4b6584; }
+        body.dark-mode .blog-post { border-left-color: #90cdf4; }
     </style>
 </head>
 <body>
@@ -86,7 +96,7 @@
         <div class="nav-links">
             <a href="#projects">Projects</a>
             <a href="#updates">Updates</a>
-            <a href="#todo-app">Task Widget</a>
+            <a href="#faq">FAQ</a>
         </div>
     </nav>
 
@@ -98,35 +108,63 @@
             <h1 style="font-size: 2.3rem; margin: 0;">Hi, I'm Alishaan Raja 👋</h1>
             <p>Welcome to my personal corner of the internet. I build dynamic web apps right from my browser!</p>
             <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
-                <span style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🌐 HTML5</span>
-                <span style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🎨 CSS3</span>
-                <span style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">⚡ JavaScript</span>
-                <span style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🐙 Git & GitHub</span>
+                <span class="tech-badge" style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🌐 HTML5</span>
+                <span class="tech-badge" style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🎨 CSS3</span>
+                <span class="tech-badge" style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">⚡ JavaScript</span>
+                <span class="tech-badge" style="background-color: #e2edf7; color: #4b6584; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">🐙 Git & GitHub</span>
             </div>
         </div>
     </header>
 
+    <section class="learning-card">
+        <h3 style="margin-top: 0;">📚 Currently Learning & Reading</h3>
+        <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+            <li><strong>Current Reading:</strong> Interactive UI Engineering and JavaScript Web API Guides.</li>
+            <li><strong>Next Goal:</strong> Learning how Git branches keep production code safe.</li>
+        </ul>
+    </section>
+
     <main>
         <h2 id="projects" style="font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px; margin-top: 40px;">My Projects</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-            <div style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2edf7;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; margin-bottom: 30px;">
+            <div class="project-card" style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2edf7;">
                 <h3>🌤️ Simple Weather Web App</h3>
                 <p>A live weather checking dashboard built using standard JavaScript to simulate climate readings.</p>
                 <a href="https://github.io" style="color: #4b6584; font-weight: bold; text-decoration: none;" target="_blank">Launch App →</a>
             </div>
-            <div style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2edf7;">
+            <div class="project-card" style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2edf7;">
                 <h3>🪙 Currency Converter</h3>
                 <p>A sleek financial calculator that tracks and translates conversion values using live APIs.</p>
                 <a href="https://github.io" style="color: #4b6584; font-weight: bold; text-decoration: none;" target="_blank">Launch App →</a>
             </div>
         </div>
-        <h2 id="todo-app" style="font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px; margin-top: 40px;">Interactive To-Do Widget</h2>
-        <div style="background-color: #ffffff; padding: 25px; border-radius: 12px; border: 1px solid #e2edf7; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 20px;">
+        <h2 id="todo-app" style="font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px;">Interactive To-Do Widget</h2>
+        <div class="todo-container" style="background-color: #ffffff; padding: 25px; border-radius: 12px; border: 1px solid #e2edf7; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 40px;">
             <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                <input type="text" id="todoInput" style="flex: 1; padding: 10px; border: 1px solid #d4e5f7; border-radius: 8px; outline: none;" placeholder="Add a new goal...">
+                <input type="text" id="todoInput" style="flex: 1; padding: 10px; border: 1px solid #d4e5f7; border-radius: 8px; outline: none;" placeholder="Add a new project assignment...">
                 <button style="background-color: #4b6584; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;" onclick="addNewTask()">Add Task</button>
             </div>
             <ul id="todoList" style="list-style: none; padding: 0; margin: 0;"></ul>
+        </div>
+
+        <h2 id="updates" style="font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px;">Latest Updates</h2>
+        <div class="blog-post">
+            <span style="font-size: 0.85rem; color: #8892a0; display: block; margin-bottom: 5px; font-weight: bold;">July 14, 2026</span>
+            <p>Upgraded my portfolio ecosystem by building an asynchronous engine clock and integrating an in-dashboard custom workspace tracker application widget!</p>
+        </div>
+        <div class="blog-post">
+            <span style="font-size: 0.85rem; color: #8892a0; display: block; margin-bottom: 5px; font-weight: bold;">July 8, 2026</span>
+            <p>Today I added custom styling to my website! I learned how to use CSS grid layouts to build project cards and removed generic list bullets.</p>
+        </div>
+
+        <h2 id="faq" style="font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px; margin-top: 40px;">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div style="font-weight: bold; color: #4b6584; margin-bottom: 5px;" class="faq-question">💡 Why did I start learning to code?</div>
+            <p style="margin: 0;">I wanted to understand how the tools I use every day actually work behind the scenes, starting with GitHub and basic web design.</p>
+        </div>
+        <div class="faq-item">
+            <div style="font-weight: bold; color: #4b6584; margin-bottom: 5px;" class="faq-question">🛠️ What software tools do I use?</div>
+            <p style="margin: 0;">Right now, I am creating and managing files directly inside GitHub's built-in web editor on Google Chrome.</p>
         </div>
     </main>
 
