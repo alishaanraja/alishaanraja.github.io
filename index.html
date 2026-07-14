@@ -3,24 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio & Blog</title>
+    <title>Alishaan Raja - Developer Portfolio</title>
     
     <style>
+        /* Global & Layout Enhancements */
+        html {
+            scroll-behavior: smooth; /* Smooth page shifting */
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f7fc; 
             color: #3d444f;            
             max-width: 750px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px 40px 20px;
             line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        /* Dark Theme Variables Matrix */
+        body.dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        body.dark-mode .project-card,
+        body.dark-mode .learning-card,
+        body.dark-mode .blog-post,
+        body.dark-mode .faq-item,
+        body.dark-mode .nav-menu {
+            background-color: #2d3748;
+            border-color: #4a5568;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode .faq-question {
+            color: #90cdf4;
+        }
+        body.dark-mode .tech-badge {
+            background-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        /* Top Navigation Header Menu */
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2edf7;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-links a {
+            color: #4b6584;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            font-size: 0.95rem;
+        }
+        body.dark-mode .nav-links a { color: #90cdf4; }
+
+        .theme-toggle-btn {
+            background-color: #4b6584;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        body.dark-mode .theme-toggle-btn { background-color: #90cdf4; color: #1a202c; }
 
         .profile-container {
             display: flex;
             align-items: center;
             gap: 25px;
             margin-bottom: 30px;
+            margin-top: 20px;
         }
 
         .profile-pic {
@@ -32,13 +98,27 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        h1, h2, h3 {
-            color: #4b6584;            
-        }
-
+        h1, h2, h3 { color: #4b6584; }
         h1 { font-size: 2.3rem; margin: 0; }
         h2 { font-size: 1.6rem; border-bottom: 2px dashed #d4e5f7; padding-bottom: 8px; margin-top: 40px; }
         h3 { font-size: 1.2rem; margin: 0 0 10px 0; }
+
+        /* Skill badging matrix elements */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tech-badge {
+            background-color: #e2edf7;
+            color: #4b6584;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
 
         .learning-card {
             background-color: #ffffff;
@@ -49,10 +129,7 @@
             margin-bottom: 20px;
         }
 
-        .learning-card ul {
-            margin: 10px 0 0 0;
-            padding-left: 20px;
-        }
+        .learning-card ul { margin: 10px 0 0 0; padding-left: 20px; }
 
         .projects-grid {
             display: grid;
@@ -72,11 +149,12 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             border: 1px solid #e2edf7;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-3px); 
+            transform: translateY(-4px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.06);
         }
 
         .project-link {
@@ -87,6 +165,7 @@
             text-decoration: none;
             font-size: 0.9rem;
         }
+        body.dark-mode .project-link { color: #90cdf4; }
 
         .blog-post {
             background-color: #ffffff;
@@ -96,6 +175,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             border-left: 4px solid #4b6584; 
         }
+        body.dark-mode .blog-post { border-left-color: #90cdf4; }
 
         .blog-date {
             font-size: 0.85rem;
@@ -114,65 +194,85 @@
             border: 1px solid #e2edf7;
         }
 
-        .faq-question {
-            font-weight: bold;
-            color: #4b6584;
-            margin-bottom: 5px;
-        }
-
-        .faq-answer {
-            margin: 0;
-        }
+        .faq-question { font-weight: bold; color: #4b6584; margin-bottom: 5px; }
+        .faq-answer { margin: 0; }
 
         footer {
             margin-top: 60px;
             text-align: center;
             font-size: 0.9rem;
+            border-top: 1px solid #d4e5f7;
+            padding-top: 20px;
         }
+        body.dark-mode footer { border-top-color: #4a5568; }
 
         footer a { color: #4b6584; font-weight: bold; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
+        body.dark-mode footer a { color: #90cdf4; }
     </style>
 </head>
 <body>
+
+    <!-- Sticky Navigation & Theme Toggler System Bar -->
+    <nav class="nav-menu">
+        <button class="theme-toggle-btn" id="themeToggler" onclick="toggleColorTheme()">🌓 Mode</button>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#updates">Updates</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
 
     <header class="profile-container">
         <img src="profile.jpg" alt="My Profile Picture" class="profile-pic">
         <div>
             <h1>Hi, I'm Alishaan Raja 👋</h1>
             <p>Welcome to my personal corner of the internet. I am learning how to use GitHub and build websites!</p>
+            
+            <!-- Skill Badges Integration Grid -->
+            <div class="skills-container">
+                <span class="tech-badge">🌐 HTML5</span>
+                <span class="tech-badge">🎨 CSS3</span>
+                <span class="tech-badge">⚡ JavaScript</span>
+                <span class="tech-badge">🐙 Git & GitHub</span>
+            </div>
         </div>
     </header>
 
     <section class="learning-card">
         <h3>📚 Currently Learning & Reading</h3>
         <ul>
-            <li><strong>Current Reading:</strong> [Insert book title or tutorial name here].</li>
+            <li><strong>Current Reading:</strong> Mastering Web Interactivity & UI Engineering Guidelines.</li>
             <li><strong>Next Goal:</strong> Learning how Git branches keep code safe.</li>
         </ul>
     </section>
 
     <main>
-               <h2>My Projects</h2>
+        <h2 id="projects">My Projects</h2>
         <div class="projects-grid">
             
             <div class="project-card">
                 <h3>🌤️ Simple Weather Web App</h3>
                 <p>A live weather checking dashboard built using standard JavaScript to calculate real-time global weather conditions instantly.</p>
-                <a href=" https://alishaanraja.github.io/-simple-weather-app/" class="project-link" target="_blank">Launch App →</a>
+                <a href="https://alishaanraja.github.io/-simple-weather-app/" class="project-link" target="_blank">Launch App →</a>
             </div>
 
             <div class="project-card">
                 <h3>🪙 Currency Converter</h3>
                 <p>A sleek, math-based financial calculator that instantly tracks and translates conversion values between global currencies.</p>
+                <!-- Update this link to match your repository deployment link -->
                 <a href="https://github.io" class="project-link" target="_blank">Launch App →</a>
             </div>
 
         </div>
 
-
-        <h2>Latest Updates</h2>
+        <h2 id="updates">Latest Updates</h2>
         
+        <div class="blog-post">
+            <span class="blog-date">July 14, 2026</span>
+            <p>Today I upgraded my master portfolio with complete smooth-scrolling behaviors, a responsive component layout hierarchy, dynamic technology skill tags, and a localized dark theme controller engine!</p>
+        </div>
+
         <div class="blog-post">
             <span class="blog-date">July 8, 2026</span>
             <p>Today I added custom styling to my website! I learned how to use CSS grid layouts to build project cards and removed the generic list bullet points for a cleaner look.</p>
@@ -183,23 +283,7 @@
             <p>Successfully launched my first repository on GitHub and got a live web link working via GitHub Pages. Pretty exciting to see plain text turn into an actual website.</p>
         </div>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
 
         <div class="faq-item">
             <div class="faq-question">💡 Why did I start learning to code?</div>
-            <p class="faq-answer">I wanted to understand how the tools I use every day actually work behind the scenes, starting with GitHub and basic web design.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">🛠️ What software tools do I use?</div>
-            <p class="faq-answer">Right now, I am creating and managing files directly inside GitHub's built-in web editor on Google Chrome.</p>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>Feel free to check out my work or connect with me directly on <a href="https://github.com">GitHub</a>!</p>
-    </footer>
-
-</body>
-</html>
